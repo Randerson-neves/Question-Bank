@@ -10,6 +10,10 @@
             <div class="card-body">
                 <div class="d-inline bg-primary">
                     <h3><%= pergunta.titulo %></h3>
+                    <form class="form-settings" method="post" action="/excluirpergunta">
+                        <input type="hidden" name="id" value="<%= pergunta.id%>">
+                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                    </form>
                 </div>
             </div>
 

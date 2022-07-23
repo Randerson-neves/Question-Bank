@@ -9,6 +9,10 @@ const Pergunta = connection.define('perguntas', {
     descricao:{
         type: Sequelize.TEXT,
         allowNull: false
+    },
+    isExcluded:{
+        type: Sequelize.INTEGER,
+        allowNull: false
     } 
 });
 

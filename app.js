@@ -28,8 +28,7 @@ app.use(express.urlencoded());
 
 //Rotas
 app.get("/",(req, res) =>{
-
-    Pergunta.findAll({ raw: true, order:[
+    Pergunta.findAll({ raw: true, where:{isExcluded:0}, order:[
         ['titulo', 'ASC']
     ]}).then(perguntas =>{
         res.render('index', {
@@ -48,7 +47,8 @@ app.post("/salvarpergunta", (req,res) =>{
 
     Pergunta.create({
         titulo: titulo,
-        descricao: descricao
+        descricao: descricao,
+        isExcluded: 0
     }).then(() =>{ 
         res.redirect("/");
     });
@@ -97,9 +97,19 @@ app.post("/salvarresposta", (req,res) =>{
      
 })
 
+app.post("/excluirpergunta", (req,res) =>{
+    let {id} = req.body
+    Pergunta.update(
+        {isExcluded:1},
+        {where:{id:id}}
+    ).then(() =>{ 
+        res.redirect("/");
+    });
+})
+
 app.post("/excluirresposta", (req,res) =>{
     let {id, perguntaId} = req.body
-    Resposta.update(
+    Pergunta.update(
         {isExcluded:1},
         {where:{id:id}}
     ).then(() =>{ 

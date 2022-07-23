@@ -18,13 +18,12 @@
         <% respostas.forEach(resposta =>{%>
             <br>
             <div class="card"> 
-                <div class="card-body text-center">
-
-                    <p><%= resposta.corpo%></p>
-                    <form method="post" action="/excluirresposta">
+                <div class="card-body">
+                    <p class="answer-marg"><%= resposta.corpo%></p>
+                    <form class="form-settings" method="post" action="/excluirresposta">
                         <input name="perguntaId" type="hidden" value="<%= pergunta.id%>">
                         <input type="hidden" name="id" value="<%= resposta.id%>">
-                        <button class="btn btn-danger">Excluir pergunta</button>
+                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
                     </form>
 
                 </div>

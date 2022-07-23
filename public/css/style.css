@@ -10,11 +10,9 @@ body{
     margin-top: 10px;
 }
 
-.allign{
-    text-align: center;
+.form-settings{
+    float:right; 
+    margin-top:-45px
 }
 
-.formstile{
-    width: 400px;
-}
 
