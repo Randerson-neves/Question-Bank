@@ -1,0 +1,22 @@
+<div class="container">
+    <hr>
+    <h1>Pergunta</h1>
+    <hr>
+    <a href="/perguntar" class="btn btn-primary">Perguntar</a>
+    <hr>
+    <% perguntas.forEach(pergunta =>{ %>
+    <br>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline bg-primary">
+                    <h3><%= pergunta.titulo %></h3>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a class="btn btn-primary" href="/resposta/<%=pergunta.id%>">Responder</a>
+            </div>
+        </div>
+
+    <% }) %>
+</div>
